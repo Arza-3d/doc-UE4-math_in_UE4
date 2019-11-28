@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://image.ibb.co/nqbdHJ/titlelogo.png" rel="icon">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="https://raw.githack.com/Arza-3d/ar3.js/master/stylesheets/ar3.min.css" rel="stylesheet" type="text/css">
+
+    </script>
+    <title>blueprint communication</title>
+
+  </head>
+  <body
+    data-repo-r3="https://github.com/Arza-3d/UE4-blueprint-communication"
+    data-headers-r3="> div > h2| > div > h3| div > section > h4"
+  >
+  <script src="https://raw.githack.com/Arza-3d/ar3.js/master/ar3header.js"></script>
+  <header>
+    <h1>blueprint communication</h1>
+      <h4>live training summary</h4>
+      <table>
+        <tr>
+          <td>game engine</td>
+          <td>Unreal Engine 4.21</td>
+        </tr>
+        <tr>
+          <td>project template</td>
+          <td>TPS</td>
+        </tr>
+        <tr>
+          <td>project repo</td>
+          <td><a href="https://github.com/Arza-3d/UE4-blueprint-communication">github.com/Arza-3d/UE4-blueprint-communication</a></td>
+        </tr>
+      </table>
+
+      <p>Summary of blueprint communication live training from
+        <a href="https://www.youtube.com/watch?v=EM_HYqQdToE">youtube</a>.
+      </p>
+  </header>
+  <main class="aside-nav-target-r3">
+
+      <div data-title-r3="direct BP comm">
+        <h2>direct BP comm examples:</h2>
+
+        <h3>pain volume (not BP comm)</h3>
+        <section>
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fforest.guhareza.733%2Fvideos%2F176082330057950%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+          <p>
+            <i>Pain volume</i> inside
+            <code>
+              <a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/1_direct_comm/Content/ThirdPersonBP/Maps/ThirdPersonExampleMap.umap">
+                ThirdPersonExampleMap
+              </a>
+            </code>
+            telling
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/1_direct_comm/Content/ThirdPersonBP/Blueprints/ThirdPersonCharacter.uasset">
+              ThirdPersonCharacter
+            </a></code>
+            to reduce it health.
+          </p>
+
+          <iframe src="https://www.youtube.com/embed/EM_HYqQdToE?start=1580&end=1589"></iframe>
+          <ol>
+            <li>drop PainCausingVolume inside the level, make the it 10 dps</li>
+            <li>also drop cube and textRender near it, so u know where it is</li>
+            <li>inside <code>ThirdPersonCharacter</code>:</li>
+              <ol>
+                <li>add float variable, name it <b>Health</b> set it to 100</li>
+                <li>then copy paste this BP:
+                  <iframe src="https://blueprintue.com/render/cbhcayag"></iframe>
+                </li>
+              </ol>
+          </ol>
+        </section>
+
+        <h3>healing volume</h3>
+        <section>
+          <p>
+            <code>
+              <a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/1_direct_comm/Content/ThirdPersonBP/Blueprints/HealingVolume.uasset">
+                HealingVolume
+              </a>
+            </code>
+            restoring
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/1_direct_comm/Content/ThirdPersonBP/Blueprints/ThirdPersonCharacter.uasset">
+              ThirdPersonCharacter
+            </a></code>
+            health.
+          </p>
+          <iframe src="https://www.youtube.com/embed/EM_HYqQdToE?start=1894&end=1913"></iframe>
+          <ol>
+            <li>create actorBP name it <code>HealingVolume</code>, then inside this
+              <ol>
+                <li>add boxCollision as BP component</li>
+                <li>copy paste this BP:</li>
+                <iframe src="https://blueprintue.com/render/35mc34z3"></iframe>
+              </ol>
+            </li>
+            <li>drop HealingVolume inside the level, <kbd>Alt</kbd> + move drag to duplicate the TextRender and the Cube</li>
+          </ol>
+
+        </section>
+
+      </div>
+      <div data-title-r3="BP interface">
+        <h2>BP interface examples:</h2>
+
+        <h3>open/closing door</h3>
+        <section>
+          <p>
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/2-1_door_interaction/Content/ThirdPersonBP/Blueprints/ThirdPersonCharacter.uasset">
+              ThirdPersonCharacter
+            </a></code>
+            with the help of
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/2-1_door_interaction/Content/ThirdPersonBP/Blueprints/iInteractable.uasset">
+              iInteractable
+            </a></code>
+            can open or close
+            <code>
+              <a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/2-1_door_interaction/Content/ThirdPersonBP/Blueprints/InteractiveDoor.uasset">
+                InteractiveDoor
+              </a>
+            </code>
+          </p>
+          <iframe src="https://www.youtube.com/embed/EM_HYqQdToE?start=4835&end=4856"></iframe>
+          <ol>
+            <li>add 2 action inputs, first one name it <b>InteractButton</b> assign it to <kbd>E</kbd>, and second one name it <b>QueryData</b> assign it to <kbd>F</kbd></li>
+            <li>create BPinterface, name it <code>iInteractable</code>, inside this:
+              <ul>
+                <li>add function, name it <b>Interact</b></li>
+                <li>add function that has <u>bool output</u>, name it <b>getInteractState</b></li>
+              </ul>
+            </li>
+            <li>inside <code>ThirdPersonCharacter</code>, copypaste this:
+              <iframe src="https://blueprintue.com/render/j729ot4u"></iframe>
+            </li>
+            <li>create actorBP, name it <code>InteractiveDoor</code>, inside this:
+              <ol>
+                <li>add components; <b>boxCollision</b> and <b>cube</b>, with location <code>(X=0.0,Y=0.0,Z=160.0)</code> and scale <code>(X=1.5,Y=0.25,Z=3.25)</code></li>
+                <li>make sure <b>boxCollision</b> collision visibility is block, so it can be traced</li>
+                <li>implement iInteractable interface</li>
+                <li>add bool var, name it <b>InteractState</b></li>
+                <li>then copypaste this:
+                  <iframe src="https://blueprintue.com/render/nem712n5"></iframe>
+                </li>
+              </ol>
+            </li>
+
+          </ol>
+
+
+        </section>
+
+        <h3>get door interact state</h3>
+        <section>
+          <p>
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/2-1_door_interaction/Content/ThirdPersonBP/Blueprints/ThirdPersonCharacter.uasset">
+              ThirdPersonCharacter
+            </a></code>
+            with the help of
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/2-1_door_interaction/Content/ThirdPersonBP/Blueprints/iInteractable.uasset">
+              iInteractable
+            </a></code>
+            can ask the <i>state</i> of
+            <code>
+              <a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/2-1_door_interaction/Content/ThirdPersonBP/Blueprints/InteractiveDoor.uasset">
+                InteractiveDoor
+              </a>
+            </code>
+          </p>
+          <iframe src="https://www.youtube.com/embed/EM_HYqQdToE?start=4907&end=4917"></iframe>
+          <ul>
+            <li>inside <code>ThirdPersonCharacter</code> copypaste this:
+              <iframe src="https://blueprintue.com/render/9-sbka3j"></iframe>
+            </li>
+          </ul>
+
+        </section>
+
+        <h3>comm with sublevel</h3>
+        <section>
+          <p>
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/2-2_level_comm/Content/ThirdPersonBP/Blueprints/ThirdPersonCharacter.uasset">
+              ThirdPersonCharacter
+            </a></code>
+            with the help of
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/2-2_level_comm/Content/ThirdPersonBP/Blueprints/iInteractable.uasset">
+              iInteractable
+            </a></code>
+            can ask the <i>state</i> of
+            <code>
+              <a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/2-2_level_comm/Content/ThirdPersonBP/Maps/ScriptSubLevel.umap">
+                ScriptSubLevel
+              </a>
+            </code>
+          </p>
+          <iframe src="https://www.youtube.com/embed/EM_HYqQdToE?start=5330&end=5337"></iframe>
+          <p>BP interface can communicate with sublevel but not with persistent level.</p>
+          <ol>
+            <li>inside <code>iInteractable</code> add new function <b>LevelComm</b> that will return a bool</li>
+            <li>create new sublevel name <code>ScriptSubLevel</code>, then inside this;
+              <ul>
+                <li>make sure the streaming method is <b>always loaded</b></li>
+                <li>implement iInteractable interface</li>
+                <li>hard coded the <b>LevelComm</b> function to ouput string that say <code>"You have successfully communicate with sublevel"</code></li>
+              </ul>
+            </li>
+            <li>then inside <code>ThirdPersonCharacter</code> copypaste this:
+              <iframe src="https://blueprintue.com/render/jz63s9j7"></iframe>
+            </li>
+          </ol>
+
+        </section>
+      </div>
+      <div data-title-r3="event dispatcher">
+        <h2>event dispatcher examples:</h2>
+        <h3>health bar</h3>
+        <section>
+          <p>
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/3.1_health_bar/Content/ThirdPersonBP/Blueprints/ThirdPersonCharacter.uasset">
+              ThirdPersonCharacter
+            </a></code>
+            communicate with
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/3.1_health_bar/Content/ThirdPersonBP/Blueprints/HealthBar.uasset">
+              HealthBar
+            </a></code>
+          </p>
+          <iframe src="https://www.youtube.com/embed/EM_HYqQdToE?start=7416&end=7437"></iframe>
+          <ol>
+            <li>inside <code>ThirdPersonCharacter</code>: add eventDispatcher, name it <b>HealthUpdate</b>,
+              thrn copypaste this
+            <iframe src="https://blueprintue.com/render/szlqamw6"></iframe>
+            </li>
+
+            <li>inside <code>HealingVolume</code> copypaste this</b>
+            <iframe src="https://blueprintue.com/render/nkbnn4ss"></iframe>
+            </li>
+
+            <li>create widget name it <code>HealthBar</code>, inside this:
+              <ol>
+                <li>add component progressBar, name it <b>HealthBar</b></li>
+                <li>copypaste this:
+                  <iframe src="https://blueprintue.com/render/ih6kfp8-"></iframe>
+                </li>
+              </ol>
+            </li>
+
+            <li>back to <code>ThirdPersonCharacter</code>, copy paste this:
+              <iframe src="https://blueprintue.com/render/y0e2rbdk"></iframe>
+            </li>
+          </ol>
+
+        </section>
+
+        <h3>death (bonus)</h3>
+        <section>
+          <p>
+            <code><a href="https://github.com/Arza-3d/UE4-blueprint-communication/blob/3.2_death/Content/ThirdPersonBP/Blueprints/ThirdPersonCharacter.uasset">
+              ThirdPersonCharacter
+            </a></code>
+            will die when health reach 0
+          </p>
+          <iframe src="https://www.youtube.com/embed/EM_HYqQdToE?start=7608&end=7615"></iframe>
+          <ul>
+            <li>inside <code>ThirdPersonCharacter</code> copypaste this:
+              <iframe src="https://blueprintue.com/render/62qp75me"></iframe>
+            </li>
+          </ul>
+
+        </section>
+      </div>
+    </main>
+    <script src="https://raw.githack.com/Arza-3d/ar3.js/master/ar3.min.js"></script>
+  </body>
+</html>
