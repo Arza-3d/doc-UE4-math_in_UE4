@@ -61,7 +61,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>defining vector</td>
+                                <td>defining vector \(\overrightarrow{a}\)</td>
                                 <td>
                                     $$ \overrightarrow{a} =  (\color{red}{a_x}, \color{green}{a_y}, \color{blue}{a_z}) $$
                                 </td>
@@ -73,7 +73,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>vector length</td>
+                                <td>vector length of \(\overrightarrow{a}\)</td>
                                 <td>
                                     $$ ||a|| = \sqrt{\color{red}{a_x}^2 + \color{green}{a_y}^2 + \color{blue}{a_z}^2} $$
                                 </td>
@@ -85,6 +85,38 @@
                                     <code>
                                         float ALength;<br>
                                         ALength = A.Size();
+                                    </code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>normal / direction of \(\overrightarrow{a}\)</td>
+                                <td>
+                                    $$ \overrightarrow{n_a} =  \frac{\overrightarrow{a}}{||a||} $$
+                                </td>
+                                <td>
+                                    $$ \overrightarrow{n_a} = \frac{(\color{red}{0} , \color{green}{1} , \color{blue}{2})}{\sqrt 5} $$
+                                    $$ \overrightarrow{n_a} = (\color{red}{0} , \color{green}{\frac{1}{\sqrt 5}} , \color{blue}{\frac{2}{\sqrt 5}}) $$
+                                </td>
+                                <td>
+                                    <code>
+                                        FVector ANormal;<br>
+                                        ANormal = A.GetUnsafeNormal();
+                                    </code>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>normal / direction of \(\overrightarrow{a}\)<br>will always have 1 vector length</td>
+                                <td>
+                                    $$ \overrightarrow{n_a} =  \frac{\overrightarrow{a}}{||a||} $$
+                                </td>
+                                <td>
+                                    $$ \overrightarrow{n_a} = \frac{(\color{red}{0} , \color{green}{1} , \color{blue}{2})}{\sqrt 5} $$
+                                    $$ \overrightarrow{n_a} = (\color{red}{0} , \color{green}{\frac{1}{\sqrt 5}} , \color{blue}{\frac{2}{\sqrt 5}}) $$
+                                </td>
+                                <td>
+                                    <code>
+                                        FVector ANormal;<br>
+                                        ANormal = A.GetUnsafeNormal();
                                     </code>
                                 </td>
                             </tr>
